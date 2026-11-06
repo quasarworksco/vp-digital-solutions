@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /entrega/
+
+Sitemap: https://vpdigitalsolutions.3s-dev.com/sitemap.xml
