@@ -159,9 +159,6 @@ body.booting .hero-photo{transform:scale(1.08)}
 /* sections */
 section{position:relative;padding:clamp(80px,11vw,130px) 0}
 .soft{background:var(--soft)}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:500;color:var(--muted);box-shadow:var(--sh-sm)}
-.eyebrow .dot{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:rgba(22,163,74,.12)}
-.eyebrow .dot i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.35}}
 .kicker{font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin:0 0 16px;display:flex;align-items:center;gap:12px}
 .kicker::before{content:"";width:26px;height:2px;border-radius:2px;background:var(--grad)}
@@ -187,7 +184,7 @@ h3{font-size:20px;letter-spacing:-.02em;line-height:1.25;font-weight:700}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask:radial-gradient(70% 60% at 50% 30%,#000,transparent 75%);mask:radial-gradient(70% 60% at 50% 30%,#000,transparent 75%);opacity:.55}
 .hero .wrap{position:relative;display:grid;gap:60px;align-items:center}
 @media (min-width:1040px){.hero{min-height:100svh;display:flex;align-items:center}.hero .wrap{grid-template-columns:1.02fr .98fr}}
-.hero h1{font-size:clamp(38px,6.4vw,70px);margin:24px 0 0;letter-spacing:-.045em;line-height:1.04}
+.hero h1{font-size:clamp(38px,6.4vw,70px);margin:0;letter-spacing:-.045em;line-height:1.04}
 .rotator{display:block;position:relative;height:1.16em;overflow:hidden}
 .rotator span{position:absolute;left:0;top:0;white-space:nowrap;padding-bottom:.1em;transform:translateY(110%);transition:transform .9s var(--ease)}
 .rotator span.on{transform:none}
@@ -596,7 +593,6 @@ footer .brand small{color:#7fb3ff}
 <section class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow rv"><span class="dot"><i></i></span><span data-i18n="hero.eyebrow">Soluciones digitales para empresas · ES / EN</span></span>
       <h1 class="split" data-i18n-html="hero.t">Soluciones digitales que hacen <span class="hl">crecer</span> tu empresa.</h1>
       <p class="lead rv" style="--d:.5s" data-i18n="hero.lead">Presencia en internet, sistemas, asistentes virtuales e inteligencia artificial: todo lo que tu negocio necesita para vender más y trabajar mejor, con un solo equipo bilingüe a tu lado.</p>
       <div class="hero-ctas rv" style="--d:.65s">
@@ -1028,7 +1024,7 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 /* ====== i18n ====== */
 const EN = {
   "nav.sol":"Solutions","nav.svc":"Services","nav.ai":"AI","nav.build":"Build your plan","nav.proc":"Process","nav.faq":"FAQ","nav.cta":"Get a quote",
-  "hero.eyebrow":"Digital solutions for businesses · EN / ES","hero.t":"Digital solutions that help your business <span class=\"hl\">grow.</span>",
+  "hero.t":"Digital solutions that help your business <span class=\"hl\">grow.</span>",
   "hero.lead":"Online presence, systems, virtual assistants and artificial intelligence: everything your business needs to sell more and work better, with one bilingual team by your side.",
   "hero.cta1":"Build your solution","hero.cta2":"See services","hero.tr1":"Bilingual team","hero.tr2":"Proposal within 24 hours","hero.tr3":"Everything in one place",
   "dash.k1":"Leads","dash.k2":"Bookings","dash.k3":"Sales",
