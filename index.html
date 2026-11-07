@@ -70,6 +70,8 @@ h2{font-size:clamp(34px,4.4vw,58px);line-height:1.06}
 h3{font-size:clamp(20px,1.8vw,24px);line-height:1.25;letter-spacing:-.02em}
 p{margin:0}
 .hl{color:var(--blue)}
+.hero h1 .hl{background:linear-gradient(var(--teal),var(--teal)) no-repeat 0 94%/0% .07em;transition:background-size 1s var(--ease) 1.15s}
+.hero h1.in .hl{background-size:100% .07em}
 .dark .hl{color:var(--sky)}
 .lead{font-size:clamp(17px,1.4vw,19px);line-height:1.65;color:var(--muted);max-width:56ch}
 .dark .lead{color:var(--onink2)}
@@ -78,6 +80,10 @@ p{margin:0}
 .head{display:grid;gap:22px;margin-bottom:clamp(48px,6vw,80px)}
 .kicker{display:flex;align-items:center;gap:14px;margin:0;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
 .kicker::before{content:"";width:28px;height:1px;background:currentColor}
+.js .head .kicker::before{transform:scaleX(0);transform-origin:0 50%;transition:transform .9s var(--ease) .1s}
+.js .head .kicker{opacity:0;transition:opacity .8s var(--ease)}
+.js .head.in .kicker{opacity:1}
+.js .head.in .kicker::before{transform:none}
 .dark .kicker{color:var(--sky)}
 .head h2{max-width:16ch}
 .head .lead{margin-top:6px}
@@ -147,6 +153,7 @@ p{margin:0}
 .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
 .js .split .w>span{display:inline-block;transform:translateY(108%);transition:transform 1.1s var(--ease) calc(var(--i)*55ms + 120ms)}
 .js .split.in .w>span{transform:none}
+.js h2.split .w>span{transition-duration:.9s;transition-delay:calc(var(--i)*40ms)}
 .js .hero .fade{opacity:0;transform:translateY(12px);transition:opacity .9s var(--ease) .65s,transform .9s var(--ease) .65s}
 .js .hero.in .fade{opacity:1;transform:none}
 .js .band img{clip-path:inset(18% 0 0 0);transform:scale(1.06);transition:clip-path 1.4s var(--ease) .5s,transform 1.8s var(--ease) .5s}
@@ -169,6 +176,11 @@ p{margin:0}
 .pillar > p{margin-top:12px;color:var(--muted);max-width:30ch}
 .pillar ul{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
 .pillar li{display:flex;gap:14px;align-items:baseline;font-size:16px}
+.js .pillar li{opacity:0;transform:translateX(-8px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js .pillar.in li{opacity:1;transform:none}
+.js .pillar.in li:nth-child(1){transition-delay:calc(var(--d,0s) + .25s)}.js .pillar.in li:nth-child(2){transition-delay:calc(var(--d,0s) + .32s)}.js .pillar.in li:nth-child(3){transition-delay:calc(var(--d,0s) + .39s)}.js .pillar.in li:nth-child(4){transition-delay:calc(var(--d,0s) + .46s)}
+.js .pillar li::before{transform:translateY(-5px) scaleX(0);transform-origin:0 50%;transition:transform .5s var(--ease) .45s}
+.js .pillar.in li::before{transform:translateY(-5px)}
 .pillar li::before{content:"";flex:none;width:14px;height:2px;border-radius:2px;background:var(--teal);transform:translateY(-5px)}
 @media (min-width:900px){.pillars{grid-template-columns:repeat(3,1fr)}.pillar{border-bottom:0;padding:44px 40px 8px}.pillar:first-child{padding-left:0}.pillar+.pillar{border-left:1px solid var(--line)}}
 
@@ -177,6 +189,8 @@ p{margin:0}
 .feat-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;overflow:hidden}
 .feat-card.navy{background:var(--ink);border-color:var(--ink);color:var(--onink)}
 .feat-card .ph{aspect-ratio:16/10;overflow:hidden}
+.js .wipe img{clip-path:inset(100% 0 0 0);transform:scale(1.12);transition:clip-path 1.3s var(--ease),transform 1.8s var(--ease)}
+.js .wipe.in img{clip-path:inset(0 0 0 0);transform:none}
 .feat-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
 @media (hover:hover){.feat-card:hover .ph img{transform:scale(1.04)}}
 .feat-card .body{padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;gap:14px;flex:1}
@@ -206,6 +220,10 @@ p{margin:0}
 .svc h3{font-size:clamp(22px,2vw,26px)}
 .svc p{color:var(--muted);font-size:16px;max-width:52ch}
 .svc:hover .si{background:var(--blue);color:#fff}
+.svc h3{transition:transform .45s var(--ease),color .3s}
+@media (hover:hover){.svc:hover h3{transform:translateX(4px);color:var(--blue2)}}
+.svc .si .ico{transition:transform .45s var(--ease)}
+@media (hover:hover){.svc:hover .si .ico{transform:scale(1.1) rotate(-6deg)}}
 @media (min-width:900px){.index{grid-template-columns:1fr 1fr;column-gap:64px}.svc{padding:34px 0}}
 
 /* AI */
@@ -290,6 +308,11 @@ p{margin:0}
 .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue2),var(--blue),var(--teal));transition:width .6s var(--ease)}
 .picked{list-style:none;margin:14px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
 .picked li{font-size:13.5px;padding:6px 11px;border-radius:999px;background:var(--tint);color:var(--blue2);font-weight:500}
+@keyframes chipIn{from{opacity:0;transform:scale(.7) translateY(4px)}to{opacity:1;transform:none}}
+.picked li.new{animation:chipIn .45s var(--ease) both}
+@keyframes bump{40%{transform:scale(1.12)}}
+.count b.bump{animation:bump .4s var(--ease)}
+.count b{display:inline-block;transform-origin:0 80%}
 .picked li.empty{background:none;border:1px dashed var(--line2);color:var(--muted)}
 .field-row{margin-top:22px}
 .field-row label{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
@@ -399,21 +422,32 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
 .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .foot ul a{color:var(--onink2);font-size:15.5px;transition:color .25s}
 .foot ul a:hover{color:var(--onink)}
-.giant{font-family:var(--display);font-weight:800;font-size:clamp(64px,15vw,220px);line-height:.9;letter-spacing:-.04em;color:#0f2140;margin:clamp(48px,6vw,80px) 0 28px;white-space:nowrap;overflow:hidden}
+.giant{display:flex;font-family:var(--display);font-weight:800;font-size:clamp(56px,14.5vw,210px);line-height:1;letter-spacing:-.04em;color:#0f2140;margin:clamp(48px,6vw,80px) 0 20px;padding-bottom:.14em;white-space:nowrap;overflow:hidden}
+.giant span{display:inline-block;white-space:pre;transition:transform 1.1s var(--ease) calc(var(--i)*45ms),color .6s}
+.js .giant span{transform:translateY(105%)}
+.js .giant.in span{transform:none}
+@media (hover:hover){.giant span:hover{color:#16305c}}
 .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid var(--line-d);font-size:14px;color:var(--onink2)}
 .legal a{color:var(--onink);text-decoration:underline;text-decoration-color:var(--sky);text-underline-offset:4px}
 
 /* whatsapp float */
 .wa-float{position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:90;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#1fae5b;color:#fff;box-shadow:0 14px 30px -10px rgba(0,0,0,.45),0 2px 6px rgba(0,0,0,.18);transition:transform .4s var(--ease)}
 .wa-float:hover{transform:translateY(-3px)}
+.js .wa-float{opacity:0;transform:translateY(20px) scale(.8);transition:opacity .6s var(--ease),transform .7s cubic-bezier(.34,1.56,.64,1)}
+.js body.ready .wa-float{opacity:1;transform:none}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #1fae5b;opacity:0;pointer-events:none}
+body.ready .wa-float::after{animation:ring 1.6s .5s var(--ease) 2}
+@keyframes ring{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
 .wa-float svg{width:28px;height:28px;fill:currentColor}
 .wa-float .tip{position:absolute;right:70px;white-space:nowrap;padding:9px 14px;background:var(--ink);color:var(--onink);font-size:14px;font-weight:500;border-radius:3px;opacity:0;transform:translateX(6px);transition:all .3s var(--ease);pointer-events:none}
 @media (hover:hover){.wa-float:hover .tip{opacity:1;transform:none}}
 
 @media (prefers-reduced-motion:reduce){
+ .wa-float::after{display:none}
+ .hero h1 .hl{background-size:100% .07em}
  html{scroll-behavior:auto}
  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
- .js .split .w>span,.js .rv,.js .hero .fade,.js .band img,.js .opts .opt,.js .inds > span,.js .mini-crm .pipe i::after{transform:none!important;opacity:1!important;clip-path:none!important}
+ .js .split .w>span,.js .rv,.js .hero .fade,.js .band img,.js .opts .opt,.js .inds > span,.js .mini-crm .pipe i::after,.js .giant span,.js .head .kicker,.js .head .kicker::before,.js .wipe img,.js .pillar li,.js .pillar li::before,.js .wa-float{transform:none!important;opacity:1!important;clip-path:none!important}
 }
 </style>
 
@@ -527,7 +561,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="head">
       <p class="kicker" data-i18n="pil.k">Un ecosistema, tres pilares</p>
-      <h2 class="rv" data-i18n-html="pil.t">Todo lo digital de tu empresa, <span class="hl">resuelto.</span></h2>
+      <h2 class="split" data-i18n-html="pil.t">Todo lo digital de tu empresa, <span class="hl">resuelto.</span></h2>
       <p class="lead rv" data-i18n="pil.lead">Dejas de coordinar agencias, freelancers y herramientas sueltas. Unimos presencia, sistemas y equipo en una sola solución que trabaja para ti.</p>
     </div>
     <div class="pillars">
@@ -570,13 +604,13 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="head">
       <p class="kicker" data-i18n="svc.k">Servicios</p>
-      <h2 class="rv" data-i18n-html="svc.t">Diseñado para <span class="hl">vender.</span> Construido para <span class="hl">escalar.</span></h2>
+      <h2 class="split" data-i18n-html="svc.t">Diseñado para <span class="hl">vender.</span> Construido para <span class="hl">escalar.</span></h2>
       <p class="lead rv" data-i18n="svc.lead">Elige un servicio o combínalos. Cada pieza se conecta con las demás para que tu negocio funcione como un sistema.</p>
     </div>
 
     <div class="feature">
       <article class="feat-card rv">
-        <div class="ph"><img src="assets/img/web-office.webp" width="1400" height="934" loading="lazy" alt="Profesional trabajando en su computadora en una oficina luminosa" data-i18n-alt="alt.weboffice"></div>
+        <div class="ph wipe"><img src="assets/img/web-office.webp" width="1400" height="934" loading="lazy" alt="Profesional trabajando en su computadora en una oficina luminosa" data-i18n-alt="alt.weboffice"></div>
         <div class="body">
           <span class="badge" data-i18n="svc.web.tag">Más pedido</span>
           <h3 data-i18n="svc.web.t">Sitios web premium</h3>
@@ -622,7 +656,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
     <div>
       <div class="head">
         <p class="kicker" data-i18n="ai.k">Inteligencia artificial</p>
-        <h2 class="rv" data-i18n-html="ai.t">Un asistente que <span class="hl">nunca duerme.</span></h2>
+        <h2 class="split" data-i18n-html="ai.t">Un asistente que <span class="hl">nunca duerme.</span></h2>
         <p class="lead rv" data-i18n="ai.lead">Mientras tú descansas, tu asistente responde en segundos, entiende lo que el cliente necesita, agenda la cita y deja todo registrado en tu CRM. Y cuando hace falta una persona, entra tu equipo.</p>
       </div>
       <div class="feat-list">
@@ -649,7 +683,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="head">
       <p class="kicker" data-i18n="cmp.k">La diferencia</p>
-      <h2 class="rv" data-i18n-html="cmp.t">Del caos al <span class="hl">control.</span></h2>
+      <h2 class="split" data-i18n-html="cmp.t">Del caos al <span class="hl">control.</span></h2>
     </div>
     <div class="compare rv" id="compare">
       <div class="toggle" role="group" aria-label="Comparar">
@@ -674,7 +708,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="head">
       <p class="kicker" data-i18n="bd.k">Arma tu plan</p>
-      <h2 class="rv" data-i18n-html="bd.t">Diseña tu solución <span class="hl">en 30 segundos.</span></h2>
+      <h2 class="split" data-i18n-html="bd.t">Diseña tu solución <span class="hl">en 30 segundos.</span></h2>
       <p class="lead rv" data-i18n="bd.lead">Marca lo que tu empresa necesita. Te enviamos una propuesta a la medida con precio, tiempos y todo lo que incluye.</p>
     </div>
     <div class="builder">
@@ -698,7 +732,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap proc">
     <div class="head">
       <p class="kicker" data-i18n="pr.k">Cómo trabajamos</p>
-      <h2 class="rv" data-i18n-html="pr.t">De la idea a <span class="hl">funcionando.</span></h2>
+      <h2 class="split" data-i18n-html="pr.t">De la idea a <span class="hl">funcionando.</span></h2>
       <p class="lead rv" data-i18n="pr.lead">Un proceso claro, sin letras pequeñas. Siempre sabes en qué va tu proyecto.</p>
     </div>
     <div class="steps" id="steps">
@@ -708,9 +742,9 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
       <div class="step rv" style="--d:.24s"><div class="n">03</div><h3 data-i18n="s3">Construcción</h3><p data-i18n="s3d">Diseñamos, desarrollamos y conectamos todo con tu marca. Tú apruebas cada etapa.</p></div>
       <div class="step rv" style="--d:.36s"><div class="n">04</div><h3 data-i18n="s4">Lanzamiento y soporte</h3><p data-i18n="s4d">Publicamos, capacitamos a tu equipo y seguimos contigo para crecer.</p></div>
     </div>
-    <div class="proc-photo rv">
+    <div class="proc-photo wipe">
       <img src="assets/img/equipo.webp" srcset="assets/img/equipo-900.webp 900w, assets/img/equipo.webp 1800w" sizes="(min-width:1240px) 1144px, 100vw" width="1800" height="1200" loading="lazy" alt="Equipo trabajando junto frente a sus pantallas" data-i18n-alt="alt.equipo">
-      <span class="stamp"><svg class="ico"><use href="#i-shield"/></svg><span data-i18n="pr.stamp">Precio claro desde el inicio</span></span>
+      <span class="stamp rv" style="--d:.8s"><svg class="ico"><use href="#i-shield"/></svg><span data-i18n="pr.stamp">Precio claro desde el inicio</span></span>
     </div>
   </div>
 </section>
@@ -720,13 +754,13 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="why-grid">
       <div class="why-photo rv">
-        <div class="ph"><img src="assets/img/veronica.webp" width="760" height="760" loading="lazy" alt="Verónica sonriendo en una oficina" data-i18n-alt="alt.veronica"></div>
-        <div class="badge2"><b>ES · EN</b><span data-i18n="why.badge">Un solo equipo, dos idiomas, todo tu negocio digital.</span></div>
+        <div class="ph wipe"><img src="assets/img/veronica.webp" width="760" height="760" loading="lazy" alt="Verónica sonriendo en una oficina" data-i18n-alt="alt.veronica"></div>
+        <div class="badge2 rv" style="--d:.7s"><b>ES · EN</b><span data-i18n="why.badge">Un solo equipo, dos idiomas, todo tu negocio digital.</span></div>
       </div>
       <div>
         <div class="head">
           <p class="kicker" data-i18n="why.k">Por qué elegirnos</p>
-          <h2 class="rv" data-i18n-html="why.t">Tecnología con <span class="hl">trato humano.</span></h2>
+          <h2 class="split" data-i18n-html="why.t">Tecnología con <span class="hl">trato humano.</span></h2>
         </div>
         <div class="why">
           <div class="rv"><svg class="ico"><use href="#i-layers"/></svg><h3 data-i18n="w1">Todo conectado</h3><p data-i18n="w1d">Tu web alimenta tu CRM, tu CRM alimenta a tu asistente y tu equipo lo ve todo.</p></div>
@@ -741,7 +775,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
 
     <div class="head inds-head">
       <p class="kicker" data-i18n="in.k">Para todo tipo de empresa</p>
-      <h2 class="rv" data-i18n-html="in.t">Hecho para <span class="hl">tu industria.</span></h2>
+      <h2 class="split" data-i18n-html="in.t">Hecho para <span class="hl">tu industria.</span></h2>
     </div>
     <div class="inds" id="inds">
       <span><svg class="ico"><use href="#i-home"/></svg><span data-i18n="in.1">Servicios del hogar</span></span>
@@ -762,7 +796,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="head">
       <p class="kicker" data-i18n="fq.k">Preguntas frecuentes</p>
-      <h2 class="rv" data-i18n-html="fq.t">Todo lo que <span class="hl">quieres saber.</span></h2>
+      <h2 class="split" data-i18n-html="fq.t">Todo lo que <span class="hl">quieres saber.</span></h2>
     </div>
     <div class="faq-wrap"><div class="faq">
       <details class="qa"><summary><span data-i18n="q1">¿Puedo contratar un solo servicio?</span><span class="pm"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="ans"><p data-i18n="a1">Sí. Puedes empezar solo con tu sitio web, tu CRM o un asistente virtual, y sumar más piezas cuando las necesites. Todo está pensado para conectarse sin rehacer nada.</p></div></details>
@@ -780,7 +814,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="cta">
       <p class="kicker" data-i18n="cta.k">Tu próximo nivel empieza hoy</p>
-      <h2 class="rv" data-i18n="cta.t">Hagamos que tu empresa trabaje sola.</h2>
+      <h2 class="split" data-i18n="cta.t">Hagamos que tu empresa trabaje sola.</h2>
       <p class="lead rv" data-i18n="cta.lead">Cuéntanos qué necesitas y en menos de 24 horas tienes una propuesta a tu medida.</p>
       <div class="hero-ctas rv">
         <a class="btn btn-primary js-wa" href="#" target="_blank" rel="noopener"><svg class="ico" style="fill:currentColor;stroke:none"><use href="#i-wa"/></svg><span data-i18n="cta.wa">Hablar por WhatsApp</span></a>
@@ -847,7 +881,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
         </ul>
       </div>
     </div>
-    <div class="giant" aria-hidden="true">VP Digital</div>
+    <div class="giant" id="giant" aria-hidden="true"><span style="--i:0">V</span><span style="--i:1">P</span><span style="--i:2"> </span><span style="--i:3">D</span><span style="--i:4">i</span><span style="--i:5">g</span><span style="--i:6">i</span><span style="--i:7">t</span><span style="--i:8">a</span><span style="--i:9">l</span></div>
     <div class="legal">
       <span>© <span id="yr"></span> VP Digital Solutions. <span data-i18n="ft.r">Todos los derechos reservados.</span></span>
       <span><span data-i18n="ft.by">Diseñado por</span> <a href="https://dgpglobalgroup.com" target="_blank" rel="noopener">DGP Global Group</a></span>
@@ -1061,11 +1095,14 @@ function seg(el, arr, cur, set){
   $$("button", el).forEach((b,i) => b.addEventListener("click", () => { set(i); $$("button", el).forEach((x,j) => x.setAttribute("aria-pressed", j===i)); updateSummary(); }));
 }
 function buildSegs(){ seg($("#size"), SIZE, size, i => size = i); seg($("#when"), WHEN[lang], when, i => when = i); }
+let prevPicked = new Set(picked);
 function updateSummary(){
   const list = OPTS.filter(o => picked.has(o.id));
   const cnt = $("#cnt"); animateNum(cnt, +cnt.textContent || 0, list.length, 500);
   $("#meter").style.width = (list.length / OPTS.length * 100) + "%";
-  $("#picked").innerHTML = list.length ? list.map(o => `<li>${o[lang][0]}</li>`).join("") : `<li class="empty">${T[lang].empty}</li>`;
+  $("#picked").innerHTML = list.length ? list.map(o => `<li${prevPicked.has(o.id) ? "" : ' class="new"'}>${o[lang][0]}</li>`).join("") : `<li class="empty">${T[lang].empty}</li>`;
+  if (list.length !== prevPicked.size && !reduce) { cnt.classList.remove("bump"); void cnt.offsetWidth; cnt.classList.add("bump"); }
+  prevPicked = new Set(picked);
   const t = T[lang];
   $("#bd-send").href = waLink(`${t.waHi}\n\n${t.mods}: ${list.map(o => o[lang][0]).join(", ") || "-"}\n${t.size}: ${SIZE[size]} ${t.emp}\n${t.when}: ${WHEN[lang][when]}`);
 }
@@ -1173,8 +1210,8 @@ onScroll();
 
 /* boot: hero entrance is the one authored moment */
 const boot = () => {
-  $("#hero").classList.add("in"); $("#hero h1").classList.add("in"); setTimeout(() => { document.body.classList.add("ready"); onScroll(); }, 1900);
-  $$(".rv, .rv-img, #steps, #opts, #inds").forEach(el => io.observe(el));
+  $("#hero").classList.add("in"); $("#hero h1").classList.add("in"); setTimeout(() => { document.body.classList.add("ready"); onScroll(); }, 1400);
+  $$(".rv, .rv-img, #steps, #opts, #inds, h2.split, .head, .wipe, #giant").forEach(el => io.observe(el));
   $$("#inds > span").forEach((e,i) => e.style.setProperty("--k", i));
   requestAnimationFrame(() => setMode("after"));
 };
