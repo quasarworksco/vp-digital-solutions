@@ -53,7 +53,7 @@ Open decisions:
 
 - Name: VP Digital Solutions.
 - Voice: plain, direct and confident, written to a business owner ("tú"), focused on outcomes (more clients, less chaos, order and control).
-- Visual direction (chosen by the client, Nov 2026): classic premium agency, played straight, in an elegant/luxury register. The previous white corporate look read as generic and flat.
+- Visual direction (chosen by the client, Nov 2026): classic premium agency layout on a light background, with the brand blues (#0b3bb5, #1450e6, sky #3d8bfd, teal #0fa3a3 on navy #0a1a33) and the square-ish sans fonts Plus Jakarta Sans (headings) and Inter (text). The client explicitly rejected gold and serif type.
 - Must keep: bilingual ES/EN toggle, the "Arma tu plan" builder, and the current copy.
 - No emojis; SVG icons only.
 - Footer credits "Diseñado por DGP Global Group" linking to https://dgpglobalgroup.com.
