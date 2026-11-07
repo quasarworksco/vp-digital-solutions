@@ -1,2 +1,7 @@
 .impeccable/review/
 .impeccable/questions/
+.impeccable/video/frames/
+.impeccable/video/beats/
+.impeccable/video/*.png
+.impeccable/video/*.wav
+.impeccable/video/*.mp4

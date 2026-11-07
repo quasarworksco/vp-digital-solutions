@@ -35,7 +35,7 @@
 <meta name="twitter:image:alt" content="VP Digital Solutions: soluciones digitales que hacen crecer tu empresa.">
 <meta name="author" content="VP Digital Solutions">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="preload" as="image" href="assets/img/pyme.webp" imagesrcset="assets/img/pyme-1000.webp 1000w, assets/img/pyme.webp 2000w" imagesizes="100vw">
+<link rel="preload" as="image" href="assets/video/reel-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -144,6 +144,10 @@ p{margin:0}
 .trust li{display:flex;align-items:center;gap:12px;padding:18px 0;font-size:15px;color:var(--muted);border-bottom:1px solid var(--line)}
 .trust .ico{width:18px;height:18px;color:var(--blue)}
 @media (min-width:700px){.trust{grid-template-columns:repeat(3,1fr)}.trust li{border-bottom:0;padding:22px 0}.trust li+li{padding-left:28px;border-left:1px solid var(--line)}}
+.hero{padding-bottom:clamp(40px,6vw,72px)}
+.reel{margin:clamp(36px,4.5vw,56px) 0 0;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 50px 100px -60px rgba(10,26,51,.45),0 2px 6px rgba(10,26,51,.05)}
+.reel video{display:block;width:100%;height:100%;object-fit:cover}
+@media (max-width:640px){.reel{border-radius:16px}}
 .band{position:relative;margin-top:0;height:clamp(260px,42vw,560px);overflow:hidden;background:var(--mist2)}
 .band img{height:calc(100% + 60px)!important;margin-top:-50px}
 .band img{width:100%;height:100%;object-fit:cover;object-position:50% 26%}
@@ -551,8 +555,14 @@ body.ready .wa-float::after{animation:ring 1.6s .5s var(--ease) 2}
       <li><svg class="ico"><use href="#i-layers"/></svg><span data-i18n="hero.tr3">Todo en un solo lugar</span></li>
     </ul>
   </div>
-  <div class="band">
-    <img src="assets/img/pyme.webp" srcset="assets/img/pyme-1000.webp 1000w, assets/img/pyme.webp 2000w" sizes="100vw" width="2000" height="1335" alt="Dueño de un negocio atendiendo a una clienta que paga con su celular en el mostrador" data-i18n-alt="alt.pyme" fetchpriority="high">
+  <div class="wrap">
+    <figure class="reel fade">
+      <video id="reel" autoplay muted loop playsinline preload="auto" poster="assets/video/reel-poster.jpg" width="1280" height="720" aria-label="Video: arma tu plan, CRM en un panel, asistente 24/7 y sitio bilingüe" data-i18n-aria="alt.reel">
+        <source src="assets/video/reel-854.mp4" type="video/mp4" media="(max-width: 700px)">
+        <source src="assets/video/reel-1280.mp4" type="video/mp4">
+        <source src="assets/video/reel-1280.webm" type="video/webm">
+      </video>
+    </figure>
   </div>
 </section>
 
@@ -915,7 +925,7 @@ const EN = {
   "hero.cta1":"Build your solution","hero.cta2":"See services","hero.tr1":"Bilingual team","hero.tr2":"Proposal within 24 hours","hero.tr3":"Everything in one place",
   "dash.k1":"Leads","dash.demo":"Sample dashboard view","dash.k2":"Bookings","dash.k3":"Sales",
   "fl.1a":"New lead","fl.1b":"from WhatsApp · now","fl.2a":"Appointment booked","fl.2b":"by your AI assistant","fl.3a":"Sales this month",
-  "alt.pyme":"Business owner serving a customer who pays with her phone at the counter","alt.weboffice":"Professional working on a computer in a bright office","alt.equipo":"Team working together at their screens","alt.veronica":"Verónica smiling in an office","alt.hero":"Team celebrating a result in a bright office","alt.web":"Professional website shown on desktop, tablet and phone","alt.crm":"Business metrics dashboard on a laptop","alt.service":"Professional serving a customer with a smile","alt.strategy":"Work meeting reviewing a website design","alt.ai":"Service robot with a screen, representing AI assistants","alt.social":"Social media and app icons","alt.workshop":"Team planning a project with sticky notes on the wall","alt.training":"Training session with a work team",
+  "alt.reel":"Video: build your plan, CRM in one dashboard, 24/7 assistant and bilingual website","alt.pyme":"Business owner serving a customer who pays with her phone at the counter","alt.weboffice":"Professional working on a computer in a bright office","alt.equipo":"Team working together at their screens","alt.veronica":"Verónica smiling in an office","alt.hero":"Team celebrating a result in a bright office","alt.web":"Professional website shown on desktop, tablet and phone","alt.crm":"Business metrics dashboard on a laptop","alt.service":"Professional serving a customer with a smile","alt.strategy":"Work meeting reviewing a website design","alt.ai":"Service robot with a screen, representing AI assistants","alt.social":"Social media and app icons","alt.workshop":"Team planning a project with sticky notes on the wall","alt.training":"Training session with a work team",
   "pil.k":"One ecosystem, three pillars","pil.t":"Everything digital in your business, <span class=\"hl\">solved.</span>",
   "pil.lead":"Stop juggling agencies, freelancers and disconnected tools. We bring presence, systems and people together into one solution that works for you.",
   "p1.t":"Presence","p1.d":"Get found, remembered and chosen.","p1.a":"Websites and online stores","p1.b":"Brand and visual identity","p1.c":"Social media and content","p1.e":"SEO and Google Business",
@@ -1008,6 +1018,7 @@ const ES = {};
 $$("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (!(k in ES)) ES[k] = el.textContent; });
 $$("[data-i18n-html]").forEach(el => { const k = el.dataset.i18nHtml; if (!(k in ES)) ES[k] = el.innerHTML; });
 $$("[data-i18n-alt]").forEach(el => { const k = el.dataset.i18nAlt; if (!(k in ES)) ES[k] = el.alt; });
+$$("[data-i18n-aria]").forEach(el => { const k = el.dataset.i18nAria; if (!(k in ES)) ES[k] = el.getAttribute("aria-label"); });
 
 const waLink = text => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`;
 const cmp = $("#compare"); let cmpAuto = true;
@@ -1019,6 +1030,7 @@ function applyLang(l, first) {
   $$("[data-i18n]").forEach(el => { const k = el.dataset.i18n; el.textContent = l === "en" ? (EN[k] ?? ES[k]) : ES[k]; if (el.classList.contains("split")) el.dataset.split = ""; });
   $$("[data-i18n-html]").forEach(el => { const k = el.dataset.i18nHtml; el.innerHTML = l === "en" ? (EN[k] ?? ES[k]) : ES[k]; el.dataset.split = ""; });
   $$("[data-i18n-alt]").forEach(el => { const k = el.dataset.i18nAlt; el.alt = l === "en" ? (EN[k] ?? ES[k]) : ES[k]; });
+  $$("[data-i18n-aria]").forEach(el => { const k = el.dataset.i18nAria; el.setAttribute("aria-label", l === "en" ? (EN[k] ?? ES[k]) : ES[k]); });
   document.title = META[l].title;
   $('meta[name=description]').content = META[l].desc;
   splitAll(); if (!first) $$(".split").forEach(s => s.classList.add("in"));
@@ -1208,6 +1220,12 @@ if (!start) start = (navigator.language || "es").toLowerCase().startsWith("es") 
 applyLang(start === "en" ? "en" : "es", true);
 onScroll();
 
+/* hero reel: respect reduced motion, pause when off-screen */
+const reel = $("#reel");
+if (reel) {
+  if (reduce) { reel.removeAttribute("autoplay"); reel.pause(); }
+  else new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? reel.play().catch(()=>{}) : reel.pause()), { threshold: .05 }).observe(reel);
+}
 /* boot: hero entrance is the one authored moment */
 const boot = () => {
   $("#hero").classList.add("in"); $("#hero h1").classList.add("in"); setTimeout(() => { document.body.classList.add("ready"); onScroll(); }, 1400);

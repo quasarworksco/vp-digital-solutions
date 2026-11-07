@@ -1,0 +1,10 @@
+const { chromium } = require('playwright');
+const fs=require('fs'); const D=__dirname+'/frames'; fs.mkdirSync(D,{recursive:true});
+const FPS=180, N=15*FPS, W=4;
+(async()=>{const b=await chromium.launch();
+ const open=async()=>{const p=await b.newPage({viewport:{width:1920,height:1080}});await p.goto('file://'+__dirname+'/reel.html');await p.waitForFunction(()=>window.ready===true,{timeout:20000});return p;};
+ const p0=await open(); const wav=await p0.evaluate(()=>renderAudio()); fs.writeFileSync(__dirname+'/audio.wav',Buffer.from(wav,'base64'));
+ const pages=[p0]; for(let i=1;i<W;i++) pages.push(await open());
+ let next=0; const t0=Date.now();
+ await Promise.all(pages.map(async p=>{ while(true){ const i=next++; if(i>=N) break; await p.evaluate(t=>seek(t),i/FPS); await p.screenshot({path:`${D}/f${String(i).padStart(5,'0')}.jpg`,type:'jpeg',quality:94}); if(i%300===0) console.log(i,((Date.now()-t0)/1000).toFixed(0)+'s'); } }));
+ await b.close(); console.log('done',((Date.now()-t0)/1000).toFixed(0)+'s');})();
