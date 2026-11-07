@@ -35,7 +35,7 @@
 <meta name="twitter:image:alt" content="VP Digital Solutions: soluciones digitales que hacen crecer tu empresa.">
 <meta name="author" content="VP Digital Solutions">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="preload" as="image" href="assets/img/strategy.webp">
+<link rel="preload" as="image" href="assets/img/pyme.webp" imagesrcset="assets/img/pyme-1000.webp 1000w, assets/img/pyme.webp 2000w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -138,9 +138,10 @@ p{margin:0}
 .trust li{display:flex;align-items:center;gap:12px;padding:18px 0;font-size:15px;color:var(--muted);border-bottom:1px solid var(--line)}
 .trust .ico{width:18px;height:18px;color:var(--blue)}
 @media (min-width:700px){.trust{grid-template-columns:repeat(3,1fr)}.trust li{border-bottom:0;padding:22px 0}.trust li+li{padding-left:28px;border-left:1px solid var(--line)}}
-.band{position:relative;margin-top:0;height:clamp(260px,42vw,560px);overflow:hidden;background:var(--ink2)}
-.band img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 22%)}
+.band{position:relative;margin-top:0;height:clamp(260px,42vw,560px);overflow:hidden;background:var(--mist2)}
+.band img{height:calc(100% + 60px)!important;margin-top:-50px}
+.band img{width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 9%)}
 
 /* hero entrance: the one authored moment */
 .split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
@@ -153,6 +154,13 @@ p{margin:0}
 /* quiet section reveals */
 .js .rv{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease) var(--d,0s),transform .8s var(--ease) var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
+.index .svc:nth-child(2n){--d:.08s}
+.why > div:nth-child(2n){--d:.08s}
+.cmp-grid{--d:0s}
+.js .opts .opt{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease) calc(var(--k,0)*40ms),transform .6s var(--ease) calc(var(--k,0)*40ms),background .3s,border-color .3s,box-shadow .3s}
+.js .opts.in .opt{opacity:1;transform:none}
+.js .inds > span{opacity:0;transition:opacity .7s var(--ease) calc(var(--k,0)*45ms)}
+.js .inds.in > span{opacity:1}
 
 /* pillars */
 .pillars{display:grid;border-top:1px solid var(--line)}
@@ -170,7 +178,7 @@ p{margin:0}
 .feat-card.navy{background:var(--ink);border-color:var(--ink);color:var(--onink)}
 .feat-card .ph{aspect-ratio:16/10;overflow:hidden}
 .feat-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
-.feat-card:hover .ph img{transform:scale(1.03)}
+@media (hover:hover){.feat-card:hover .ph img{transform:scale(1.04)}}
 .feat-card .body{padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;gap:14px;flex:1}
 .feat-card h3{font-size:clamp(26px,2.6vw,34px)}
 .feat-card p{color:var(--muted);max-width:48ch}
@@ -188,6 +196,8 @@ p{margin:0}
 .mini-crm b{display:block;font-family:var(--display);font-weight:800;letter-spacing:-.03em;font-size:clamp(30px,3vw,42px);line-height:1.1;margin-top:6px;font-variant-numeric:tabular-nums}
 .mini-crm .pipe{display:grid;gap:8px}
 .mini-crm .pipe i{display:block;height:2px;background:var(--line-d);position:relative}
+.js .mini-crm .pipe i::after{transform:scaleX(0);transform-origin:0 50%;transition:transform 1.4s var(--ease) .3s}
+.js .in .mini-crm .pipe i::after{transform:none}
 .mini-crm .pipe i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:linear-gradient(90deg,var(--sky),var(--teal))}
 .mini-crm .note{font-size:12px;color:var(--onink2);opacity:.8}
 .index{display:grid;border-top:1px solid var(--line2)}
@@ -308,7 +318,7 @@ footer .brand svg{border-radius:13px;box-shadow:0 0 0 1px rgba(238,243,251,.18)}
 @media (max-width:899px){.steps .track{display:none}.step{border-top:1px solid var(--line)}}
 @media (min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:40px}}
 .proc-photo{position:relative;margin-top:clamp(56px,7vw,96px);height:clamp(240px,36vw,460px);overflow:hidden;border-radius:22px}
-.proc-photo img{width:100%;height:100%;object-fit:cover}
+.proc-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .stamp{position:absolute;left:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;background:#fff;color:var(--ink);font-size:15px;font-weight:600;box-shadow:0 14px 30px -16px rgba(10,26,51,.4)}
 .stamp .ico{color:var(--teal);width:20px;height:20px}
 
@@ -317,7 +327,7 @@ footer .brand svg{border-radius:13px;box-shadow:0 0 0 1px rgba(238,243,251,.18)}
 @media (min-width:1000px){.why-grid{grid-template-columns:.9fr 1.1fr;align-items:start}}
 .why-photo{position:relative}
 .why-photo .ph{aspect-ratio:4/5;overflow:hidden;border-radius:22px}
-.why-photo img{width:100%;height:100%;object-fit:cover}
+.why-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .badge2{position:absolute;right:-12px;bottom:-12px;max-width:280px;padding:22px 24px;border-radius:18px;background:var(--ink);color:var(--onink);box-shadow:0 24px 50px -24px rgba(10,26,51,.6)}
 @media (max-width:640px){.badge2{right:12px;bottom:12px}}
 .badge2 b{display:block;font-family:var(--display);font-weight:800;letter-spacing:-.03em;font-size:28px;color:#9cc2ff;line-height:1}
@@ -347,6 +357,8 @@ footer .brand svg{border-radius:13px;box-shadow:0 0 0 1px rgba(238,243,251,.18)}
 .qa[open] .pm{transform:rotate(45deg);background:var(--blue);border-color:var(--blue);color:#fff}
 .qa summary:hover .pm{border-color:var(--text)}
 .ans p{padding:0 56px 28px 0;color:var(--muted);max-width:70ch}
+@supports (interpolate-size:allow-keywords){:root{interpolate-size:allow-keywords}.qa::details-content{height:0;overflow:clip;opacity:0;transition:height .5s var(--ease),opacity .4s,content-visibility .5s allow-discrete}.qa[open]::details-content{height:auto;opacity:1}}
+@media (max-width:640px){.ans p{padding-right:0}}
 
 /* contact */
 .cta{display:grid;gap:28px;padding-bottom:clamp(56px,7vw,96px);border-bottom:1px solid var(--line-d)}
@@ -401,7 +413,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
 @media (prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
- .js .split .w>span,.js .rv,.js .hero .fade,.js .band img{transform:none!important;opacity:1!important;clip-path:none!important}
+ .js .split .w>span,.js .rv,.js .hero .fade,.js .band img,.js .opts .opt,.js .inds > span,.js .mini-crm .pipe i::after{transform:none!important;opacity:1!important;clip-path:none!important}
 }
 </style>
 
@@ -506,7 +518,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
     </ul>
   </div>
   <div class="band">
-    <img src="assets/img/strategy.webp" width="1000" height="667" sizes="100vw" alt="Reunión de trabajo revisando el diseño de un sitio web" data-i18n-alt="alt.strategy" fetchpriority="high">
+    <img src="assets/img/pyme.webp" srcset="assets/img/pyme-1000.webp 1000w, assets/img/pyme.webp 2000w" sizes="100vw" width="2000" height="1335" alt="Dueño de un negocio atendiendo a una clienta que paga con su celular en el mostrador" data-i18n-alt="alt.pyme" fetchpriority="high">
   </div>
 </section>
 
@@ -564,7 +576,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
 
     <div class="feature">
       <article class="feat-card rv">
-        <div class="ph"><img src="assets/img/web.webp" width="1000" height="1250" loading="lazy" alt="Sitio web profesional visto en computadora, tableta y celular" data-i18n-alt="alt.web"></div>
+        <div class="ph"><img src="assets/img/web-office.webp" width="1400" height="934" loading="lazy" alt="Profesional trabajando en su computadora en una oficina luminosa" data-i18n-alt="alt.weboffice"></div>
         <div class="body">
           <span class="badge" data-i18n="svc.web.tag">Más pedido</span>
           <h3 data-i18n="svc.web.t">Sitios web premium</h3>
@@ -579,9 +591,9 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
           <p data-i18n="svc.crm.d">Clientes, embudo de ventas, agenda, tareas, cobros y equipo con permisos en un solo panel. Conectado a tu web, WhatsApp, llamadas y SMS. Pagas una vez y es tuyo.</p>
           <div class="mini-crm" aria-hidden="true">
             <div class="row">
-              <div class="k"><small data-i18n="dash.k1">Leads</small><b>128</b></div>
-              <div class="k"><small data-i18n="dash.k2">Citas</small><b>46</b></div>
-              <div class="k"><small data-i18n="dash.k3">Ventas</small><b>$38k</b></div>
+              <div class="k"><small data-i18n="dash.k1">Leads</small><b data-count="128">128</b></div>
+              <div class="k"><small data-i18n="dash.k2">Citas</small><b data-count="46">46</b></div>
+              <div class="k"><small data-i18n="dash.k3">Ventas</small><b data-count="38" data-prefix="$" data-suffix="k">$38k</b></div>
             </div>
             <div class="pipe"><i style="--w:80%"></i><i style="--w:55%"></i><i style="--w:92%"></i></div>
             <p class="note" data-i18n="dash.demo">Vista de ejemplo del panel</p>
@@ -697,7 +709,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
       <div class="step rv" style="--d:.36s"><div class="n">04</div><h3 data-i18n="s4">Lanzamiento y soporte</h3><p data-i18n="s4d">Publicamos, capacitamos a tu equipo y seguimos contigo para crecer.</p></div>
     </div>
     <div class="proc-photo rv">
-      <img src="assets/img/workshop.webp" width="1000" height="667" loading="lazy" alt="Equipo planificando un proyecto con notas en la pared" data-i18n-alt="alt.workshop">
+      <img src="assets/img/equipo.webp" srcset="assets/img/equipo-900.webp 900w, assets/img/equipo.webp 1800w" sizes="(min-width:1240px) 1144px, 100vw" width="1800" height="1200" loading="lazy" alt="Equipo trabajando junto frente a sus pantallas" data-i18n-alt="alt.equipo">
       <span class="stamp"><svg class="ico"><use href="#i-shield"/></svg><span data-i18n="pr.stamp">Precio claro desde el inicio</span></span>
     </div>
   </div>
@@ -708,7 +720,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
   <div class="wrap">
     <div class="why-grid">
       <div class="why-photo rv">
-        <div class="ph"><img src="assets/img/training.webp" width="1000" height="667" loading="lazy" alt="Sesión de capacitación con un equipo de trabajo" data-i18n-alt="alt.training"></div>
+        <div class="ph"><img src="assets/img/asesora.webp" width="800" height="1200" loading="lazy" alt="Profesional sonriente lista para atender a un cliente" data-i18n-alt="alt.asesora"></div>
         <div class="badge2"><b>ES · EN</b><span data-i18n="why.badge">Un solo equipo, dos idiomas, todo tu negocio digital.</span></div>
       </div>
       <div>
@@ -731,7 +743,7 @@ footer{background:#071326;color:var(--onink);padding:clamp(64px,8vw,104px) 0 32p
       <p class="kicker" data-i18n="in.k">Para todo tipo de empresa</p>
       <h2 class="rv" data-i18n-html="in.t">Hecho para <span class="hl">tu industria.</span></h2>
     </div>
-    <div class="inds rv">
+    <div class="inds" id="inds">
       <span><svg class="ico"><use href="#i-home"/></svg><span data-i18n="in.1">Servicios del hogar</span></span>
       <span><svg class="ico"><use href="#i-tool"/></svg><span data-i18n="in.2">Construcción</span></span>
       <span><svg class="ico"><use href="#i-heart"/></svg><span data-i18n="in.3">Salud y bienestar</span></span>
@@ -869,7 +881,7 @@ const EN = {
   "hero.cta1":"Build your solution","hero.cta2":"See services","hero.tr1":"Bilingual team","hero.tr2":"Proposal within 24 hours","hero.tr3":"Everything in one place",
   "dash.k1":"Leads","dash.demo":"Sample dashboard view","dash.k2":"Bookings","dash.k3":"Sales",
   "fl.1a":"New lead","fl.1b":"from WhatsApp · now","fl.2a":"Appointment booked","fl.2b":"by your AI assistant","fl.3a":"Sales this month",
-  "alt.hero":"Team celebrating a result in a bright office","alt.web":"Professional website shown on desktop, tablet and phone","alt.crm":"Business metrics dashboard on a laptop","alt.service":"Professional serving a customer with a smile","alt.strategy":"Work meeting reviewing a website design","alt.ai":"Service robot with a screen, representing AI assistants","alt.social":"Social media and app icons","alt.workshop":"Team planning a project with sticky notes on the wall","alt.training":"Training session with a work team",
+  "alt.pyme":"Business owner serving a customer who pays with her phone at the counter","alt.weboffice":"Professional working on a computer in a bright office","alt.equipo":"Team working together at their screens","alt.asesora":"Smiling professional ready to help a client","alt.hero":"Team celebrating a result in a bright office","alt.web":"Professional website shown on desktop, tablet and phone","alt.crm":"Business metrics dashboard on a laptop","alt.service":"Professional serving a customer with a smile","alt.strategy":"Work meeting reviewing a website design","alt.ai":"Service robot with a screen, representing AI assistants","alt.social":"Social media and app icons","alt.workshop":"Team planning a project with sticky notes on the wall","alt.training":"Training session with a work team",
   "pil.k":"One ecosystem, three pillars","pil.t":"Everything digital in your business, <span class=\"hl\">solved.</span>",
   "pil.lead":"Stop juggling agencies, freelancers and disconnected tools. We bring presence, systems and people together into one solution that works for you.",
   "p1.t":"Presence","p1.d":"Get found, remembered and chosen.","p1.a":"Websites and online stores","p1.b":"Brand and visual identity","p1.c":"Social media and content","p1.e":"SEO and Google Business",
@@ -1038,6 +1050,7 @@ function buildOpts(){
     <span class="oi"><svg class="ico"><use href="#${o.ic}"/></svg></span>
     <span><b>${o[lang][0]}</b><small>${o[lang][1]}</small></span>
     <span class="ck"><svg class="ico"><use href="#i-check"/></svg></span></button>`).join("");
+  $$("#opts .opt").forEach((b,i) => b.style.setProperty("--k", i));
   $$("#opts .opt").forEach(b => b.addEventListener("click", () => {
     const id = b.dataset.id; picked.has(id) ? picked.delete(id) : picked.add(id);
     b.setAttribute("aria-pressed", picked.has(id)); updateSummary();
@@ -1133,9 +1146,10 @@ const io = new IntersectionObserver(entries => entries.forEach(en => {
 }), { threshold: .15, rootMargin: "0px 0px -6% 0px" });
 
 /* nav, progress, parallax */
-const nav = $("#nav"), bar = $(".progress"), drawer = $("#drawer"), burger = $(".burger"), ctaImg = $("#cta-img");
+const nav = $("#nav"), bar = $(".progress"), drawer = $("#drawer"), burger = $(".burger"), ctaImg = $("#cta-img"), band = $(".band"), bandImg = $(".band img");
 const onScroll = () => {
   const y = scrollY; nav.classList.toggle("scrolled", y > 20);
+  if (!reduce && band && document.body.classList.contains("ready")) { const r = band.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) bandImg.style.translate = `0 ${Math.round((r.top - innerHeight) * -0.08)}px`; }
   bar.style.transform = `scaleX(${y / (document.documentElement.scrollHeight - innerHeight || 1)})`;
   if (!reduce && ctaImg) { const r = ctaImg.parentNode.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) ctaImg.style.transform = `translateY(${Math.max(-80, Math.min(0, (r.top - innerHeight / 2) * -0.1 - 40))}px)`; }
 };
@@ -1159,8 +1173,9 @@ onScroll();
 
 /* boot: hero entrance is the one authored moment */
 const boot = () => {
-  $("#hero").classList.add("in"); $("#hero h1").classList.add("in");
-  $$(".rv, .rv-img, #steps").forEach(el => io.observe(el));
+  $("#hero").classList.add("in"); $("#hero h1").classList.add("in"); setTimeout(() => { document.body.classList.add("ready"); onScroll(); }, 1900);
+  $$(".rv, .rv-img, #steps, #opts, #inds").forEach(el => io.observe(el));
+  $$("#inds > span").forEach((e,i) => e.style.setProperty("--k", i));
   requestAnimationFrame(() => setMode("after"));
 };
 requestAnimationFrame(() => requestAnimationFrame(boot));
